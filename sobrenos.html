@@ -35,7 +35,7 @@
     }
     
     .section-title {
-      color: #2e5885;
+      color: #020202;
       font-weight: 700;
     }
     
@@ -97,6 +97,17 @@
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
+@media (max-width: 576px) {
+  .feature-card {
+    padding-bottom: 80%; /* Menos altura en móviles */
+  }
+}
+@media (max-width: 768px) {
+  header {
+    min-height: 70vh;
+  }
+}
+
 
     .nav-link:hover::after {
       width: 100%;
@@ -129,63 +140,48 @@
       color: white;
     
     }
-    
-    .team-photo {
+
+    .feature-card {
+  background-color: #ADD8E6; /* azul clarito */
   width: 100%;
-  height: 300px; /* o la altura que tengan tus tarjetas "200+ casos" */
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding-bottom: 100%; /* Alto igual al ancho → cuadrado */
+  position: relative; /* Necesario para posicionar contenido interno */
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
 }
 
-    /* Tarjetas */
-    .feature-card {
-      background: white;
-      border-radius: 12px;
-      padding: 30px;
-      height: 100%;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      border: none;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    .feature-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 0;
-      background: linear-gradient(to bottom, var(--accent-color), var(--secondary-color));
-      transition: height 0.3s ease;
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
-    
-    .feature-card:hover::before {
-      height: 100%;
-    }
-    
-    .feature-card .card-icon {
-      font-size: 2.5rem;
-      color: var(--accent-color);
-      margin-bottom: 20px;
-    }
-    
-    .feature-card .card-title {
-      font-weight: 600;
-      color: var(--primary-color);
-      margin-bottom: 15px;
-    }
-    
-    .feature-card .card-text {
-      color: #666;
-    }
+.feature-card-content {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-card h3,
+.feature-card p {
+  margin: 0;
+}
+
+.row,
+.row.g-0 {
+  margin: 0 !important;
+  gap: 0 !important;
+}
 
     /* Stats */
     .stat-item {
@@ -306,7 +302,7 @@
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="images/logo sisri blanco (1).png" width="40" height="40" class="me-2" />
-        <img src="images/bblogo.png" width="60" height="60" class="me-2" />
+        <img src="images/bblogo.png" width="80" height="70" class="me-2" />
         
         <span>Blue Basin</span>
       </a>
@@ -325,12 +321,99 @@
       </div>
     </div>
   </nav>
-  <header style="background: linear-gradient(to right, #0f1d3d, #2e5885);">
-    <div class="container text-white">
-      <h1 class="display-4 animate__animated animate__fadeInDown">Nuestro Equipo</h1>
+  <!-- Header ajustado -->
+<header class="py-5" style="background: linear-gradient(to right, #0f1d3d, #2e5885); min-height: 300px;">
+    <div class="container text-white text-center">
+      <h1 class="display-5 animate__animated animate__fadeInDown">Nuestro Equipo</h1>
       <p class="lead animate__animated animate__fadeInUp animate__delay-1s">Comprometido con el medio ambiente</p>
     </div>
   </header>
+  
+  <!-- Cuadrados en dos filas -->
+  <div class="container py-5">
+    <div class="row g-0">
+      <!-- Fila 1 -->
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #61a5dc;">
+          <div class="feature-card-content text-white">
+            <h3>Innovación</h3>
+            <p>Diseño de soluciones sustentables</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card">
+          <div class="feature-card-content">
+            <img src="images/alec.jpg" alt="Miembro 1" />
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #0d9553;">
+          <div class="feature-card-content text-white">
+            <h3>Innovación</h3>
+            <p>Diseño de soluciones sustentables</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card">
+          <div class="feature-card-content">
+            <img src="images/lunac.jpg" alt="Miembro 1" />
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #0f336c;">
+          <div class="feature-card-content text-white">
+            <h3>Innovación</h3>
+            <p>Diseño de soluciones sustentables</p>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Fila 2 -->
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #0f336c;">
+          <div class="feature-card-content text-white">
+            <h3>Innovación</h3>
+            <p>Diseño de soluciones sustentables</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #3b9d64;">
+          <div class="feature-card-content text-white">
+            <h3>Compromiso</h3>
+            <p>Con el campo mexicano</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #446d92;">
+          <div class="feature-card-content text-white">
+            <h3>Compromiso</h3>
+            <p>Con el campo mexicano</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card">
+          <div class="feature-card-content">
+            <img src="images/lunac.jpg" alt="Miembro 1" />
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="feature-card" style="background-color: #5c8d8e;">
+          <div class="feature-card-content text-white">
+            <h3>Compromiso</h3>
+            <p>Con el campo mexicano</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   
     <div class="container">
         <div class="content-section">
@@ -364,19 +447,7 @@
             <p>Sisri invita a diferentes empresas a contribuir en el presupuesto para desarrollar y mejorar el sistema. Al colaborar con OASIS, un grupo estudiantil comprometido con la ecología, se obtendrán múltiples beneficios y se apoyará una iniciativa juvenil con una causa noble.</p>
         </div>
     </div>
-    <!-- Nuestro Equipo -->
-    <div class="col-md-4 mb-4">
-        <img src="images/alec.jpg" alt="Alec" class="team-photo">
-      </div>
-      <div class="col-md-4 mb-4">
-        <img src="images/lunac.jpg" alt="Lunac" class="team-photo">
-      </div>
-      <div class="col-md-4 mb-4">
-        <img src="images/cesarc.jpg" alt="Cesarc" class="team-photo">
-      </div>
-      
-  
-    <div class="row g-4 mt-4">
+   
       <!-- Cuadro 1 -->
       <div class="col-md-4">
         <div class="p-4 h-100 d-flex flex-column justify-content-center" style="background-color: var(--accent-color); color: white;">
@@ -487,4 +558,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+<script>
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    elements.forEach(el => observer.observe(el));
+  </script>
+  
 </html>
